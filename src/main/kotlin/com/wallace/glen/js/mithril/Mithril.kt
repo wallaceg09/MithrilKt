@@ -10,5 +10,6 @@ external fun m(selector: String, attrs: dynamic, vararg children: dynamic)
 
 @JsName("m")
 external object Mithril {
+    fun mount(element: dynamic, component: dynamic)
     fun render(element: dynamic, vnodes: dynamic)
 }
