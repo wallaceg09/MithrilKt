@@ -5,4 +5,10 @@ package com.wallace.glen.js.mithril
  */
 @JsModule("mithril")
 @JsNonModule
+
 external fun m(selector: String, attrs: dynamic, vararg children: dynamic)
+
+@JsName("m")
+external object Mithril {
+    fun render(element: dynamic, vnodes: dynamic)
+}

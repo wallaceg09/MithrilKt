@@ -11,7 +11,5 @@ fun main(args: Array<String>) {
     val attrs: dynamic = object {}
     attrs["class"] = "title"
 
-    var thing = m("p", attrs, "My first app!")
-
-    js("m.render(root, thing)")
+    Mithril.render(root, m("p", attrs, "My first app!"))
 }
