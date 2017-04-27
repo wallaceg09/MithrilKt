@@ -8,23 +8,16 @@ import kotlin.browser.document
 fun main(args: Array<String>) {
     val root = document.body
 
-    val attrs: dynamic = object {}
-    attrs["class"] = "title"
+    val attrs = HtmlAttribute(`class` = "title")
 
     val thing = arrayOf(
-            m("p", attrs, "My first app!"),
+            m("p", attrs.toJsObject(), "My first app!"),
             m("button", "A button")
     )
 
-    // TODO: Figure out why this doesn't work?
-//    fun functionThatDoesntWork() = m("main", thing)
+    fun theFunction() : dynamic = m("main", thing)
 
-    fun theFunction() : dynamic {
-        return m("main", thing)
-    }
-
-    val Hello: dynamic = object {}
-    Hello["view"] = ::theFunction
+    val Hello = MithrilComponent(::theFunction)
 
     Mithril.mount(root, Hello)
 }
