@@ -8,16 +8,32 @@ import kotlin.browser.document
 fun main(args: Array<String>) {
     val root = document.body
 
-    val attrs = HtmlAttribute(`class` = "title")
+    val Hello = object : Component {
+        var count: Int = 0
 
-    val thing = arrayOf(
-            m("p", attrs, children = "My first app!"),
-            m("button", children = "A button")
-    )
+        private val attrs = HtmlAttribute(`class` = "title")
 
-    fun theFunction() : dynamic = m("main", children = *thing)
+        private val onclick1 = fun () {
+            ++count
+        }
 
-    val Hello = Component(::theFunction)
+        private val thing = arrayOf(
+                m("p", attrs, children = "My first app!"),
+                m("button", attrs = object {val onclick = onclick1}, children = "$count clicks")
+        )
+
+        override val view: (VNode) -> Any
+            get() {
+                return fun(vnode: VNode) : Any {
+                    val thing = arrayOf(
+                            m("p", attrs, children = "My first app!"),
+                            m("button", attrs = object {val onclick = onclick1}, children = "$count clicks")
+                    )
+
+                    return m("main", children = *thing)
+                }
+            }
+    }
 
     Mithril.mount(root!!, Hello)
 }

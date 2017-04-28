@@ -13,8 +13,8 @@ external class VNode {
     var text: dynamic
     var dom: Element?
     var domSize: Double?
-    var state: Any?
-    var _state: Any?
+    var state: dynamic
+    var _state: dynamic
     var events: Any?
     var instance: Any?
 }
