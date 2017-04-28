@@ -11,13 +11,13 @@ fun main(args: Array<String>) {
     val attrs = HtmlAttribute(`class` = "title")
 
     val thing = arrayOf(
-            m("p", attrs.toJsObject(), "My first app!"),
-            m("button", "A button")
+            m("p", attrs, children = "My first app!"),
+            m("button", children = "A button")
     )
 
-    fun theFunction() : dynamic = m("main", thing)
+    fun theFunction() : dynamic = m("main", children = *thing)
 
-    val Hello = MithrilComponent(::theFunction)
+    val Hello = Component(::theFunction)
 
     Mithril.mount(root, Hello)
 }
