@@ -19,5 +19,5 @@ fun main(args: Array<String>) {
 
     val Hello = Component(::theFunction)
 
-    Mithril.mount(root, Hello)
+    Mithril.mount(root!!, Hello)
 }

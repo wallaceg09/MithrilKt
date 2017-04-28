@@ -22,7 +22,7 @@ external fun m(selector: Any, attrs: Any? = definedExternally, children: Boolean
 
 @JsName("m")
 external object Mithril {
-    fun mount(element: dynamic, component: dynamic) : dynamic
+    fun mount(element: Element, component: Component?)
 
     fun render(element: Element, vnodes: VNode)
     fun render(element: Element, vnodes: Array<VNode>)
