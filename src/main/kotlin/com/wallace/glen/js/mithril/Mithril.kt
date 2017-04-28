@@ -26,4 +26,15 @@ external object Mithril {
 
     fun render(element: Element, vnodes: VNode)
     fun render(element: Element, vnodes: Array<VNode>)
+
+    fun route(root: Element, defaultRoute: String, routes: Map<String, dynamic>)
+
+    object route {
+        fun set(path: String, data: Map<String, String> = definedExternally, options: dynamic = definedExternally)
+        fun get() : String
+        fun prefix(prefix: String)
+        fun link(vnode: VNode)
+        fun param(): dynamic
+        fun param(key: String) : String
+    }
 }

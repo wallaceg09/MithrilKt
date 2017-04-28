@@ -22,9 +22,8 @@ fun main(args: Array<String>) {
                 m("button", attrs = object {val onclick = onclick1}, children = "$count clicks")
         )
 
-        override val view: (VNode) -> Any
-            get() {
-                return fun(vnode: VNode) : Any {
+        override val view: (VNode) -> Any =
+                fun(vnode: VNode) : Any {
                     val thing = arrayOf(
                             m("p", attrs, children = "My first app!"),
                             m("button", attrs = object {val onclick = onclick1}, children = "$count clicks")
@@ -32,7 +31,6 @@ fun main(args: Array<String>) {
 
                     return m("main", children = *thing)
                 }
-            }
     }
 
     Mithril.mount(root!!, Hello)
