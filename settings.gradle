@@ -1,2 +1,4 @@
 rootProject.name = 'MithrilWrapper'
+include 'demo'
+include 'wrapper'
 

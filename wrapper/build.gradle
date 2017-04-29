@@ -21,3 +21,9 @@ repositories {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
 }
+
+compileKotlin2Js {
+    kotlinOptions.outputFile = "${projectDir}/build/js/MithrilKt.js"
+    kotlinOptions.suppressWarnings = true
+    kotlinOptions.verbose = true
+}
