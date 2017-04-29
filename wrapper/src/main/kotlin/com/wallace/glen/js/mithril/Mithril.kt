@@ -42,4 +42,23 @@ external object Mithril {
 
     fun request(url: String, options: RequestOptions = definedExternally) : Promise<*>
     fun request(options: RequestOptions = definedExternally) : Promise<*>
+
+    fun <T>parseQueryString(string: String): T
+
+    fun buildQueryString(obj: Map<String, Any>)
+    fun buildQueryString(obj: Any)
+    fun buildQueryString(obj: dynamic)
+
+    fun withAttr(attrName: String, callback: (Any) -> Unit, thisArg: Any = definedExternally) : (Any) -> Unit
+
+    fun fragment(attrs: Any, children: Array<VNode>?): VNode
+    fun fragment(attrs: Any, children: String?): VNode
+    fun fragment(attrs: Any, children: Number?): VNode
+    fun fragment(attrs: Any, children: Boolean?): VNode
+
+    fun trust(html:String) : VNode
+
+    fun redraw()
+
+    fun version() : String
 }
