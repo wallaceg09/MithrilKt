@@ -1,6 +1,8 @@
 package com.wallace.glen.js.mithril
 
+import com.wallace.glen.js.mithril.request.RequestOptions
 import org.w3c.dom.Element
+import kotlin.js.Promise
 
 /**
  * Created by Glen on 4/25/2017.
@@ -37,4 +39,7 @@ external object Mithril {
         fun param(): dynamic
         fun param(key: String) : String
     }
+
+    fun request(url: String, options: RequestOptions = definedExternally) : Promise<*>
+    fun request(options: RequestOptions = definedExternally) : Promise<*>
 }
