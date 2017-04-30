@@ -21,9 +21,10 @@ class RequestOptions (
         var serialize: ((data: Any) -> Any)? = null,
         var deserialize: ((data: String) -> Any?)? = null,
         var extract: ((xhr: XMLHttpRequest, options: dynamic) -> dynamic)? = null,
-        var useBody: Boolean = method == GET,
+        var useBody: Boolean = method != GET,
         var background: Boolean = false
         ) {
+
     companion object {
         val POST = "POST"
         val GET = "GET"

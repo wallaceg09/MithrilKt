@@ -11,19 +11,24 @@ import kotlin.js.Promise
 @JsNonModule
 
 @JsName("m")
-external fun m(selector: Any, attrs: Any? = definedExternally, vararg children: VNode? = definedExternally) : VNode
+external fun m(selector: Any, attrs: Any? = definedExternally, children: Array<VNode> = definedExternally) : VNode
 
 @JsName("m")
-external fun m(selector: Any, attrs: Any? = definedExternally, children: String? = definedExternally) : VNode
+external fun m(selector: Any, attrs: Any? = definedExternally, children: VNode = definedExternally) : VNode
 
 @JsName("m")
-external fun m(selector: Any, attrs: Any? = definedExternally, children: Number? = definedExternally) : VNode
+external fun m(selector: Any, attrs: Any? = definedExternally, children: String = definedExternally) : VNode
 
 @JsName("m")
-external fun m(selector: Any, attrs: Any? = definedExternally, children: Boolean? = definedExternally) : VNode
+external fun m(selector: Any, attrs: Any? = definedExternally, children: Number = definedExternally) : VNode
+
+@JsName("m")
+external fun m(selector: Any, attrs: Any? = definedExternally, children: Boolean = definedExternally) : VNode
 
 @JsName("m")
 external fun m(selector: Any) : VNode
+@JsName("m")
+external fun m(selector: Any, attrs: Any? = definedExternally) : VNode
 
 @JsName("m")
 external object Mithril {

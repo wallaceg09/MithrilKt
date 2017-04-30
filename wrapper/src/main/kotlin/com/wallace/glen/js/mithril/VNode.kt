@@ -9,7 +9,7 @@ external class VNode
 {
     var tag: dynamic
     var key: String?
-    var attrs: Any?
+    var attrs: dynamic
     var children: dynamic
     var text: dynamic
     var dom: Element?
