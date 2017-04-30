@@ -21,13 +21,23 @@ fun main(args: Array<String>) {
 //            "/edit/:id" to UserFormView
 //    ).toAssociativeArray()
 
+    val listRouteResolver = object: RouteResolver {
+        override val onmatch: (dynamic, requestedPath: String) -> dynamic
+            get() = fun(args: dynamic, requestedPath: String) {}
+        override val render: (vnode: VNode) -> Array<VNode>
+            get() = fun(vnode: VNode): Array<VNode> { return arrayOf(m(Layout, children = m(UserListView))) }
+    }
+
+    val editRouteResolver = object: RouteResolver {
+        override val onmatch: (dynamic, requestedPath: String) -> dynamic
+            get() = fun(args: dynamic, requestedPath: String){}
+        override val render: (vnode: VNode) -> Array<VNode>
+            get() = fun(vnode: VNode): Array<VNode> {return arrayOf(m(Layout, children = m(UserFormView, vnode.attrs)))}
+    }
+
     val routeResolver: dynamic = mapOf(
-            "/list" to object {
-                val render = fun(): VNode {return m(Layout, children = m(UserListView))}
-            },
-            "/edit/:id" to object {
-                val render = fun(vnode: VNode): VNode {return m(Layout, children = m(UserFormView, vnode.attrs))}
-            }
+            "/list" to listRouteResolver,
+            "/edit/:id" to editRouteResolver
     ).toAssociativeArray()
 
     Mithril.route(root, "/list", routeResolver)
