@@ -23,6 +23,9 @@ external fun m(selector: Any, attrs: Any? = definedExternally, children: Number?
 external fun m(selector: Any, attrs: Any? = definedExternally, children: Boolean? = definedExternally) : VNode
 
 @JsName("m")
+external fun m(selector: Any) : VNode
+
+@JsName("m")
 external object Mithril {
     fun mount(element: Element, component: Component?)
 
